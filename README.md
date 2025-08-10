@@ -2,6 +2,7 @@
 
 A **minimal**, **secure**, and **lightweight** comment system that packs a punch without unnecessary tech overhead.  
 Designed for **blogs, articles, and web pages** — with simple Google Sheets integration to store and manage comments per page.
+## Demo: [Comment Trigger Button Available on Top and Bottom (Join the converstion) You have to scroll little bit](https://bitwisestudy.web.app/notes/class12/chemistry/haloalkanes-haloarenes-notes-class-12)
 
 ---
 
