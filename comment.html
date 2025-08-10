@@ -1,0 +1,141 @@
+<!-- Example Button to trigger the Comment Modal -->
+<button class="comment-trig-end-post comment-box-mld">
+          Join the Conversation (<span class="comment-count">0</span>)
+        </button>
+
+        <style>
+          .comment-trig-end-post {
+            display: block;
+            margin: 40px auto;
+            padding: 15px 65px;
+            font-size: 16px;
+            font-family: inherit;
+            font-weight: 500;
+            color: var(--beige-dual);
+            background-color: transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border: var(--border);
+          }
+
+          .comment-trig-end-post:hover {
+            background-color: #212121;
+            color: white;
+            border: var(--border);
+          }
+        </style>
+<!-- Comment Modal -->
+        <div id="comment-modal-overlay" class="comment-modal-overlay">
+          <div class="comment-mdl">
+            <div class="comment-mdl-header">
+              Comments
+              <button class="comment-close-btn" aria-label="Close Comments">
+                &times;
+              </button>
+            </div>
+
+            <div class="comment-mdl-body" id="comment-modal-body">
+              <!-- Comment Box -->
+              <div class="comment-box">
+                <input type="hidden" class="reply-parent-id" />
+                <input type="hidden" class="reply-immediate-id" />
+
+                <div class="add-comment">
+                  <div class="name-input-container">
+                    <div class="input-wrapper">
+                      <input
+                        type="text"
+                        class="name-input"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div class="input-wrapper">
+                      <input
+                        type="email"
+                        class="email-input"
+                        placeholder="Your email (optional)"
+                      />
+                    </div>
+                  </div>
+
+                  <textarea
+                    placeholder="Share your thoughts..."
+                    rows="3"
+                    maxlength="500"
+                  ></textarea>
+                  <div class="char-counter">0 / 500</div>
+                  <div class="comment-toolbar">
+                    <button class="submit-btn">
+                      <i class="fas fa-paper-plane"></i> Post
+                    </button>
+                  </div>
+                </div>
+
+                <div class="comment-sort">
+                  <span>
+                    Comments (
+                    <strong class="comment-count">
+                      <span class="loading-spinner"></span>
+                    </strong>
+                    )
+                  </span>
+
+                  <select>
+                    <option value="desc">Most recent</option>
+                    <option value="asc">Oldest</option>
+                  </select>
+                </div>
+
+                <!-- Pinned Comment -->
+                <div class="comments-pinned">
+                  <div class="comment">
+                    <div class="comment-header">
+                      <div class="comment-avatar-gradient"></div>
+                      <div class="comment-user">
+                        <strong
+                          >Akshay
+                          <i
+                            class="fas fa-check-circle verified-badge"
+                            title="Verified"
+                          ></i
+                        ></strong>
+                        <span class="time">Pinned</span>
+                      </div>
+                    </div>
+                    <div class="comment-content">
+                      <p>
+                        Please avoid hate, spam, or offensive content. Every
+                        comment is monitored, and we aim to keep this space
+                        respectful and safe for all users.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comments-section">
+                  <!-- Loaded comments here -->
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-mdl-footer">
+              <span>Be nice, constructive and respectful.</span>
+              <button class="scroll-to-top-btn" title="Scroll to top">
+                <!-- Up arrow SVG -->
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#767676"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
