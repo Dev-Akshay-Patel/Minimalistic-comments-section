@@ -1,0 +1,950 @@
+:root {
+     --primary-color: rgb(250, 136, 71);
+     --secondary-color: #c97e37;
+     --accent-color: #4895ef;
+     --text-color: #2b2d42;
+     --light-text: #8d99ae;
+     --background: #f8f9fa;
+     --commentbg: #ffffff;
+     --border-color: #e9ecef;
+     --success-color: rgb(250, 136, 71);
+     --danger-color: #f72585;
+     --warning-color: #f8961e;
+     --commentborder: 1px solid #cecece;
+     --comment-mention:#fa8947be;
+}
+ body.dark-mode {
+     --commentbg: rgba(0, 0, 0, 0);
+     --commentborder: 1px solid rgb(99 99 99);
+     --commenttlb: #242424;
+     --txtcolor: #d5d5d5;
+     --comment-mention:#fa884752;
+}
+ .comment-box {
+     background: var(--Mainbg);
+     border-radius: 12px;
+}
+ .add-comment {
+     position: relative;
+     margin-bottom: 30px;
+     border: var(--commentborder);
+     border-radius: 12px;
+     overflow: hidden;
+}
+ .add-comment textarea {
+     width: 100%;
+     border: none;
+     padding: 16px;
+     font-size: 15px;
+     resize: none;
+     min-height: 100px;
+     font-family: Outfit-Regular;
+     box-sizing: border-box;
+     background: transparent;
+     color: var(--txtcolor);
+}
+ .add-comment textarea:focus {
+     outline: none;
+}
+ .add-comment textarea::placeholder {
+     color: var(--light-text);
+}
+ .comment-toolbar {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 8px 16px;
+     background-color: var(--commenttlb);
+     border-top: var(--commentborder);
+}
+
+ .submit-btn {
+     padding: 6px 16px;
+     background-color: var(--primary-color);
+     color: rgb(255, 255, 255);
+     border: none;
+     border-radius: 6px;
+     font-weight: 500;
+     cursor: pointer;
+     transition: 0.2s;
+     display: flex;
+     align-items: center;
+     gap: 6px;
+     font-size: 14px;
+     font-family: inherit;
+}
+ .submit-btn:hover {
+     background-color: var(--secondary-color);
+}
+ .comments-section {
+     margin-top: 30px;
+}
+ .comment-sort {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 15px;
+     margin-bottom: 20px;
+     padding-bottom: 15px;
+     border-bottom: var(--commentborder);
+}
+ .comment-sort span {
+     font-weight: 500;
+     color: var(--txtcolor);
+}
+ .comment-sort strong {
+     color: var(--primary-color);
+}
+ .comment-sort select {
+     padding: 6px 10px;
+     border-radius: 8px;
+     border: var(--commentborder);
+     font-family: Outfit-Regular;
+     background-color: var(--commentbg);
+     color: var(--txtcolor);
+     cursor: pointer;
+}
+ .comment {
+     padding: 18px;
+     border-radius: 12px;
+     background-color: var(--commentbg);
+     margin-bottom: 15px;
+     border: var(--commentborder);
+     margin-top: 10px;
+}
+ .replies-container {
+     margin-top: 15px;
+     overflow: hidden;
+     transition: 0.3s;
+     max-height: 0px;
+}
+ .replies-container.expanded {
+     max-height: 2000px;
+}
+ .replies {
+     margin-left: 0px !important;
+     padding-left: 0px !important;
+}
+ .comment.reply {
+     background-color: rgb(238 155 67 / 3%);
+     border-left: 3px solid #fa8847;
+     margin-left: 0px !important;
+}
+ .comment-header {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     margin-bottom: 8px;
+}
+ .comment-user {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: flex-start;
+     gap: 2px;
+}
+ .comment-header img {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     object-fit: cover;
+     flex-shrink: 0;
+}
+ .comment-user strong {
+     font-weight: 500;
+     color: var(--txtcolor);
+     line-height: 1.2;
+}
+ .comment-user .time {
+     font-size: 13px;
+     color: var(--light-text);
+     line-height: 1.2;
+     margin-top: 0;
+}
+ .comment-content {
+     font-size: 15px;
+     color: var(--txtcolor);
+     line-height: 1.4;
+}.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover; 
+}
+
+ .comment-content .mention {
+     font-weight: 500;
+     color: white;
+     display: inline;
+     margin-right: 6px;
+     font-size: 13px;
+}
+ .mention {
+     color: rgb(37, 99, 235);
+     font-weight: bold;
+     background-color: var(--comment-mention);
+     border-radius: 27px;
+     padding: 3px 8px 5px 7px;
+     display: inline-flex;
+     align-items: center;
+     line-height: 1.8;
+}
+ .comment-content p {
+     margin: 0px 0px 10px;
+     color: var(--txtcolor);
+}
+ .comment-content pre {
+     background: rgba(0, 0, 0, 0.05);
+     padding: 12px;
+     border-radius: 6px;
+     overflow-x: auto;
+     font-size: 14px;
+}
+ .comment-content code {
+     font-family: "Courier New", monospace;
+     background: rgba(0, 0, 0, 0.05);
+     padding: 2px 4px;
+     border-radius: 3px;
+     font-size: 14px;
+}
+ .comment-content blockquote {
+     border-left: 3px solid var(--accent-color);
+     padding-left: 12px;
+     margin-left: 0px;
+     color: var(--light-text);
+}
+ .comment-footer {
+     margin-top: 12px;
+     display: flex;
+     gap: 15px;
+     font-size: 14px;
+     color: var(--light-text);
+     align-items: center;
+}
+ .comment-footer span {
+     display: flex;
+     align-items: center;
+     gap: 4px;
+}
+ .reply-btn, .toggle-replies-btn {
+     background: none;
+     border: none;
+     color: var(--primary-color);
+     cursor: pointer;
+     font-size: 14px;
+     font-weight: 500;
+     display: flex;
+     align-items: center;
+     gap: 4px;
+     font-family: inherit;
+}
+ .toggle-replies-btn i {
+     transition: transform 0.2s;
+}
+ .toggle-replies-btn.expanded i {
+     transform: rotate(180deg);
+}
+ .show-more {
+     background: none;
+     border: none;
+     color: var(--primary-color);
+     font-weight: 500;
+     cursor: pointer;
+     margin: 20px auto 0px;
+     display: block;
+     padding: 8px 16px;
+     border-radius: 8px;
+     font-family: inherit;
+}
+ .verified-badge {
+     color: var(--success-color);
+     font-size: 14px;
+     margin-left: 4px;
+}
+ .reply-input-container {
+     margin-top: 15px;
+     display: none;
+}
+ .reply-input {
+     border: 1px solid var(--border-color);
+     border-radius: 12px;
+     overflow: hidden;
+     margin-bottom: 15px;
+}
+ .reply-input textarea {
+     width: 100%;
+     border: none;
+     padding: 16px;
+     font-size: 15px;
+     resize: none;
+     min-height: 80px;
+     font-family: Outfit-Regular;
+     box-sizing: border-box;
+}
+ .reply-input textarea:focus {
+     outline: none;
+}
+ .reply-input .comment-toolbar {
+     padding: 8px 16px;
+     background-color: var(--background);
+     border-top: 1px solid var(--border-color);
+}
+ @media (max-width: 768px) {
+     .comment-box {
+         padding: 0px;
+    }
+     .comment.reply {
+         margin-left: 0px !important;
+    }
+}
+ @media (max-width: 600px) {
+     .comment.reply {
+         margin-left: 0px !important;
+    }
+     .comment-header {
+         flex-direction: row;
+         align-items: center;
+         gap: 12px;
+    }
+}
+ @media (max-width: 480px) {
+     .comment-box {
+         padding: 0px;
+    }
+     .comment.reply {
+         margin-left: 0px !important;
+    }
+     .submit-btn {
+         width: 100%;
+         justify-content: center;
+    }
+}
+ .name-input-container {
+     padding: 12px 16px 0px;
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+}
+ .input-wrapper {
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+}
+ .name-input, .email-input {
+     width: 100%;
+     border: var(--commentborder);
+     padding: 8px 12px;
+     border-radius: 6px;
+     font-family: Outfit-Regular;
+     font-size: 14px;
+     box-sizing: border-box;
+     background-color: var(--commentbg);
+     color: var(--color);
+}
+ .name-input:focus, .email-input:focus {
+     outline: none;
+     border-color: var(--accent-color);
+}
+ .name-input::placeholder, .email-input::placeholder {
+     color: var(--light-text);
+}
+ @media (min-width: 600px) {
+     .name-input-container {
+         flex-direction: row;
+         gap: 16px;
+    }
+     .input-wrapper {
+         width: 50%;
+    }
+}
+ .comment-footer .delete-btn {
+     background: transparent;
+     color: rgb(231, 76, 60);
+     border: none;
+     cursor: pointer;
+     font-size: 0.85rem;
+     margin-left: 10px;
+}
+ .comment-footer .delete-btn:hover {
+     text-decoration: underline;
+}
+ @keyframes comment-avatar-gradient {
+     0% {
+         --s-start-0: 37%;
+         --s-end-0: 90%;
+         --x-0: 11%;
+         --y-0: 96%;
+         --c-0: hsla(195, 79%, 51%, 1);
+         --c-1: hsla(272, 100%, 64%, 1);
+         --x-1: 95%;
+         --s-start-1: 31%;
+         --s-end-1: 84%;
+         --y-1: 92%;
+         --c-2: hsla(216, 95%, 54%, 1);
+         --x-2: 58%;
+         --s-start-2: 41%;
+         --s-end-2: 61%;
+         --y-2: 7%;
+         --x-3: 62%;
+         --y-3: 35%;
+         --s-start-3: 22%;
+         --s-end-3: 59%;
+         --c-3: hsla(239, 76%, 52%, 1);
+         --y-4: 63%;
+         --x-4: 2%;
+         --s-start-4: 19%;
+         --s-end-4: 70%;
+         --c-4: hsla(232, 81%, 92%, 1);
+    }
+     50% {
+         --s-start-0: 29%;
+         --s-end-0: 73%;
+         --x-0: 6%;
+         --y-0: 12%;
+         --c-0: hsla(313, 78%, 76%, 1);
+         --c-1: hsla(235, 87%, 56%, 1);
+         --x-1: 77%;
+         --s-start-1: 8%;
+         --s-end-1: 52.61503700898072%;
+         --y-1: 29%;
+         --c-2: hsla(220, 51%, 96%, 1);
+         --x-2: 75%;
+         --s-start-2: 29%;
+         --s-end-2: 80%;
+         --y-2: 23%;
+         --x-3: 76%;
+         --y-3: 64%;
+         --s-start-3: 2%;
+         --s-end-3: 81%;
+         --c-3: hsla(218, 76%, 75%, 1);
+         --y-4: 86%;
+         --x-4: 41%;
+         --s-start-4: 24%;
+         --s-end-4: 81%;
+         --c-4: hsla(315, 89%, 98%, 1);
+    }
+     100% {
+         --s-start-0: 37%;
+         --s-end-0: 90%;
+         --x-0: 11%;
+         --y-0: 96%;
+         --c-0: hsla(195, 79%, 51%, 1);
+         --c-1: hsla(235, 87%, 56%, 1);
+         --x-1: 36%;
+         --s-start-1: 8%;
+         --s-end-1: 21.71776697271709%;
+         --y-1: 13%;
+         --c-2: hsla(216, 95%, 54%, 1);
+         --x-2: 58%;
+         --s-start-2: 41%;
+         --s-end-2: 61%;
+         --y-2: 7%;
+         --x-3: 62%;
+         --y-3: 35%;
+         --s-start-3: 22%;
+         --s-end-3: 59%;
+         --c-3: hsla(239, 76%, 52%, 1);
+         --y-4: 63%;
+         --x-4: 2%;
+         --s-start-4: 19%;
+         --s-end-4: 70%;
+         --c-4: hsla(232, 81%, 92%, 1);
+    }
+}
+ @property --s-start-0 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 37%;
+}
+ @property --s-end-0 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 90%;
+}
+ @property --x-0 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 11%;
+}
+ @property --y-0 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 96%;
+}
+ @property --c-0 {
+     syntax: "<color>";
+     inherits: false;
+     initial-value: hsla(195, 79%, 51%, 1);
+}
+ @property --c-1 {
+     syntax: "<color>";
+     inherits: false;
+     initial-value: hsla(272, 100%, 64%, 1);
+}
+ @property --x-1 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 95%;
+}
+ @property --s-start-1 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 31%;
+}
+ @property --s-end-1 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 84%;
+}
+ @property --y-1 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 92%;
+}
+ @property --c-2 {
+     syntax: "<color>";
+     inherits: false;
+     initial-value: hsla(216, 95%, 54%, 1);
+}
+ @property --x-2 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 58%;
+}
+ @property --s-start-2 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 41%;
+}
+ @property --s-end-2 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 61%;
+}
+ @property --y-2 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 7%;
+}
+ @property --x-3 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 62%;
+}
+ @property --y-3 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 35%;
+}
+ @property --s-start-3 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 22%;
+}
+ @property --s-end-3 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 59%;
+}
+ @property --c-3 {
+     syntax: "<color>";
+     inherits: false;
+     initial-value: hsla(239, 76%, 52%, 1);
+}
+ @property --y-4 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 63%;
+}
+ @property --x-4 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 2%;
+}
+ @property --s-start-4 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 19%;
+}
+ @property --s-end-4 {
+     syntax: "<percentage>";
+     inherits: false;
+     initial-value: 70%;
+}
+ @property --c-4 {
+     syntax: "<color>";
+     inherits: false;
+     initial-value: hsla(232, 81%, 92%, 1);
+}
+ .comment-avatar-gradient {
+     --s-start-0: 37%;
+     --s-end-0: 90%;
+     --x-0: 11%;
+     --y-0: 96%;
+     --c-0: hsla(195, 79%, 51%, 1);
+     --c-1: hsla(272, 100%, 64%, 1);
+     --x-1: 95%;
+     --s-start-1: 31%;
+     --s-end-1: 84%;
+     --y-1: 92%;
+     --c-2: hsla(216, 95%, 54%, 1);
+     --x-2: 58%;
+     --s-start-2: 41%;
+     --s-end-2: 61%;
+     --y-2: 7%;
+     --x-3: 62%;
+     --y-3: 35%;
+     --s-start-3: 22%;
+     --s-end-3: 59%;
+     --c-3: hsla(239, 76%, 52%, 1);
+     --y-4: 63%;
+     --x-4: 2%;
+     --s-start-4: 19%;
+     --s-end-4: 70%;
+     --c-4: hsla(232, 81%, 92%, 1);
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     flex-shrink: 0;
+     background-color: rgb(103, 41, 158);
+     background-image: radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)), radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4));
+     background-blend-mode: overlay, normal, hard-light, normal, normal, normal;
+     animation: 10s linear 0s infinite alternate none running comment-avatar-gradient;
+}
+.loading-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: -2px; /* fine-tune alignment */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+ .spinner {
+     display: inline-block;
+     width: 18px;
+     height: 18px;
+     border-width: 2px;
+     border-style: solid;
+     border-color: white rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3);
+     border-image: initial;
+     border-radius: 50%;
+     animation: 0.6s linear 0s infinite normal none running spin;
+     vertical-align: middle;
+     margin-right: 6px;
+}
+ @keyframes spin {
+     100% {
+         transform: rotate(360deg);
+    }
+}
+
+ .loader {
+     border-right: 3px solid rgba(0, 0, 0, 0.1);
+     border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+     border-left: 3px solid rgba(0, 0, 0, 0.1);
+     border-image: initial;
+     border-top: 3px solid var(--primary-color);
+     border-radius: 50%;
+     width: 40px;
+     height: 40px;
+     animation: 0.3s linear 0s infinite normal none running spin;
+     display: block;
+     margin: 10px auto;
+}
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.skeletoncom {
+  display: flex;
+  align-items: center; /* Align profile circle perfectly with text */
+  gap: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: var(--border);
+}
+
+.skeletoncom-circle {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bookmark-shimmer);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite linear;
+}
+
+.skeletoncom-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center text vertically with avatar */
+}
+@keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+.skeletoncom-line {
+  height: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+background:var(--bookmark-shimmer);
+
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  margin-top: 0px;
+}
+
+.skeletoncom-line.short {
+  width: 30%;
+}
+
+.skeletoncom-line.medium {
+  width: 50%;
+}
+
+.skeletoncom-line.long {
+  width: 80%;
+}
+
+.skeletoncom-line:last-child {
+  margin-bottom: 0; /* No extra gap after last line */
+}
+
+ .spinner-btn {
+     border-right: 3px solid rgba(0, 0, 0, 0.1);
+     border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+     border-left: 3px solid rgba(0, 0, 0, 0.1);
+     border-image: initial;
+     border-top: 3px solid var(--primary-color);
+     border-radius: 50%;
+     width: 18px;
+     height: 18px;
+     animation: 0.8s linear 0s infinite normal none running spin;
+     display: inline-block;
+     vertical-align: middle;
+     margin-right: 6px;
+}
+ @keyframes spin {
+     100% {
+         transform: rotate(360deg);
+    }
+}
+ .char-counter {
+     position: absolute;
+     bottom: 55px;
+     right: 10px;
+     font-size: 12px;
+     color: var(--accordionbg);
+     background: var(--solid-fill);
+     border-radius: 5px;
+     padding: 0px 6px 0px 6px;
+     backdrop-filter: blur(10px);
+}
+ .load-more-btn {
+     margin: 20px auto;
+     display: block;
+     background-color: rgb(0, 123, 255);
+     color: rgb(255, 255, 255);
+     border: none;
+     padding: 10px 20px;
+     border-radius: 4px;
+     cursor: pointer;
+     font-size: 1em;
+     font-family: inherit;
+     transition: background 0.3s;
+}
+ .load-more-btn:hover {
+     background-color: rgb(0, 86, 179);
+}
+ .comment-modal-overlay {
+     position: fixed;
+     inset: 0px;
+     background: rgba(0, 0, 0, 0.6);
+     display: none;
+     justify-content: center;
+     align-items: center;
+     z-index: 9999;
+     backdrop-filter: blur(4px);
+}
+ .comment-modal-overlay.active {
+     display: flex;
+     animation: 0.25s ease-out 0s 1 normal forwards running fadeIn;
+}
+ .comment-mdl {
+     background: rgb(255, 255, 255);
+     border-radius: 16px;
+     width: 95%;
+     max-width: 680px;
+     max-height: 90vh;
+     overflow-y: auto;
+     display: flex;
+     flex-direction: column;
+     box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 60px;
+     animation: 0.3s ease 0s 1 normal forwards running modalScaleIn;
+     position: relative;
+     transform-origin: center center;
+     transition: 0.3s;
+     border: var(--border);
+}
+ .comment-mdl.closing {
+     animation: 0.3s ease 0s 1 normal forwards running modalScaleOut;
+}
+ .comment-mdl-header {
+     padding: 14px 20px;
+     border-bottom: var(--border);
+     font-size: 1.2rem;
+     font-weight: 600;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background: var(--Mainbg);
+}
+ .comment-close-btn {
+     background: var(--search-header-x);
+     border: none;
+     border-radius: 999px;
+     padding: 5px 12px;
+     font-size: 1.2rem;
+     cursor: pointer;
+     color: var(--color);
+     transition: background 0.2s;
+}
+ .comment-close-btn:hover {
+     background: rgba(224, 224, 224, 0.316);
+}
+ .comment-mdl-body {
+     padding: 20px;
+     flex-grow: 1;
+     overflow-y: auto;
+     position: relative;
+     background: var(--Mainbg);
+}
+ .comment-mdl-footer {
+     border-top: var(--border);
+     padding: 12px 16px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 0.85rem;
+     color: var(--color);
+     position: relative;
+     background: var(--Mainbg);
+}
+ .scroll-to-top-btn {
+     width: 34px;
+     height: 34px;
+     background: var(--search-header-x);
+     border: none;
+     border-radius: 50%;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
+     transition: background 0.2s;
+     color: var(--color);
+}
+ .scroll-to-top-btn:hover {
+     background: rgb(220, 220, 220);
+}
+ @keyframes fadeIn {
+     0% {
+         opacity: 0;
+    }
+     100% {
+         opacity: 1;
+    }
+}
+ @keyframes modalScaleIn {
+     0% {
+         transform: scale(0.9);
+         opacity: 0;
+    }
+     100% {
+         transform: scale(1);
+         opacity: 1;
+    }
+}
+ @keyframes modalScaleOut {
+     0% {
+         transform: scale(1);
+         opacity: 1;
+    }
+     100% {
+         transform: scale(0.9);
+         opacity: 0;
+    }
+}
+ @keyframes slideUp {
+     0% {
+         transform: translateY(100%);
+         opacity: 0;
+    }
+     100% {
+         transform: translateY(0%);
+         opacity: 1;
+    }
+}
+ @keyframes slideDown {
+     0% {
+         transform: translateY(0%);
+         opacity: 1;
+    }
+     100% {
+         transform: translateY(100%);
+         opacity: 0;
+    }
+}
+ @media (max-width: 600px) {
+     .comment-modal-overlay {
+         align-items: flex-end;
+    }
+     .comment-mdl {
+         width: 100%;
+         max-height: 70vh;
+         border-radius: 16px 16px 0px 0px;
+         animation: 0.3s ease 0s 1 normal forwards running slideUp;
+         border-left: none;
+         border-right: none;
+         border-bottom: none;
+    }
+     .comment-mdl.closing {
+         animation: 0.3s ease 0s 1 normal forwards running slideDown;
+    }
+}
+ @media (min-width: 601px) and (max-width: 1024px), (min-device-width: 601px) and (max-device-width: 1024px) and (orientation: portrait) {
+     .comment-modal-overlay {
+         align-items: flex-end;
+    }
+     .comment-mdl {
+         width: 100%;
+         max-height: 60vh;
+         border-radius: 16px 16px 0px 0px;
+         animation: 0.3s ease 0s 1 normal forwards running slideUp;
+         border-left: none;
+         border-right: none;
+         border-bottom: none;
+         max-width: none;
+    }
+     .comment-mdl.closing {
+         animation: 0.3s ease 0s 1 normal forwards running slideDown;
+    }
+}
